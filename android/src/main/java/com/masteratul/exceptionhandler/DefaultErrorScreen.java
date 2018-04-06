@@ -18,6 +18,7 @@ public class DefaultErrorScreen extends Activity {
     private Button relaunchButton;
     private Button showDetailsButton;
     private TextView stackTraceView;
+    private TextView correlationIdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
