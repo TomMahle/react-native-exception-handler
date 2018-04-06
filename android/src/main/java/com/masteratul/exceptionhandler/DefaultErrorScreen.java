@@ -23,12 +23,16 @@ public class DefaultErrorScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String stackTraceString = getIntent().getExtras().getString("stack_trace_string");
-        setContentView(R.layout.default_error_screen);
+        setContentView(R.layout.native_error_screen);
         quitButton = (Button) findViewById(R.id.eh_quit_button);
         relaunchButton = (Button) findViewById(R.id.eh_restart_button);
         showDetailsButton = (Button) findViewById(R.id.eh_show_details_button);
         stackTraceView = (TextView) findViewById(R.id.eh_stack_trace_text_view);
         stackTraceView.setText(stackTraceString);
+
+        correlationIdView = (TextView) findViewById(R.id.eh_correlation_id);
+        String uniqueID = UUID.randomUUID().toString();
+        correlationIdView.setText(uniqueID);
 
         showDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
